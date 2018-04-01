@@ -1,11 +1,19 @@
 <article class="li {{ .Type }}">
     <header class="post-header">
         <h3 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-        <p class="post-time"><time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">{{ .Date.Format "January 2, 2006" }}</time></p>
+<!--         <p class="post-time"><time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">{{ .Date.Format "January 2, 2006" }}</time></p> -->
     </header>
-    
+
     <section class="post-excerpt">
         <p>{{ .Summary }}</p>
+<!--         <p>
+        {{ with .Description }}
+          {{ $.Scratch.Set "summary" (markdownify .) }}
+        {{ else }}
+          {{ $.Scratch.Set "summary" .Summary }}
+        {{ end }}
+        {{ $.Scratch.Get "summary" }}
+        </p> -->
     </section>
 
     <footer class="post-footer">
@@ -13,10 +21,10 @@
             {{ if .Site.Params.disqusShortname }}
             <a href="{{ .Permalink }}#comments"><i class="fa fa-comment"></i> Comments</a>
             {{ end }}
-            {{ with.Params.tags }}
+<!--             {{ with.Params.tags }}
             	&nbsp;&nbsp;<i class="fa fa-tag"></i>
             	{{ delimit  . ", " }}
-            {{ end }}
+            {{ end }} -->
         </span>
     </footer>
 </article>
